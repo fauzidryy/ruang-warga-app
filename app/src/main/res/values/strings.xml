@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Ruang Warga</string>
+
+    <!--Intro Screen-->
+    <string name="str_next">Lanjut</string>
+    <string name="str_title_welcome">Selamat datang di Ruang Warga</string>
+    <string name="str_description_welcome">Aplikasi yang siap buat hidup kamu makin nyaman, kapan pun dan di mana pun.</string>
+
+    <string name="str_title_schedule">Kelola kegiatan warga dengan mudah</string>
+    <string name="str_description_schedule">Mengenal warga lebih dekat dengan berbagai kegaitan acara mengaji, gotong royong dan lain-lain.</string>
+
+    <string name="str_title_payment">Bayar iuran tinggal klik aja</string>
+    <string name="str_description_payment">Kelola iuran warga lebih mudah dan praktis tinggal klik aja tanpa ribet.</string>
+
+    <string name="str_title_charity">Beramal untuk bekal akhirat</string>
+    <string name="str_description_charity">Bantu warga dengan beramal ke fakir miskin dengan berbagai metode pembayaran lebih mudah.</string>
+
+</resources>
