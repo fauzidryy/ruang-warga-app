@@ -97,9 +97,9 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
         android:layout_width="320dp"
-        android:layout_height="55dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/primary"
+        android:background="@drawable/button_filled"
         android:text="@string/str_next"
         android:textAllCaps="false"
         android:textColor="@color/white"

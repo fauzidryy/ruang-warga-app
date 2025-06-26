@@ -272,8 +272,7 @@ class IntroActivity : AppCompatActivity() {
         }
     }
 
-    private fun Int.dpToPx(): Int =
-        (this * Resources.getSystem().displayMetrics.density).toInt()
+    private fun Int.dpToPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 
     override fun onDestroy() {
         storiesView.destroy()
