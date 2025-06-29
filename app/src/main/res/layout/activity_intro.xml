@@ -7,129 +7,132 @@
     android:layout_height="match_parent"
     tools:context=".IntroActivity">
 
-    <com.google.android.material.materialswitch.MaterialSwitch
-        android:id="@+id/btnLanguage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:checked="true"
-        android:padding="4dp"
-        android:thumbTint="@color/primary"
-        android:trackTint="@color/primary"
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:showText="false" />
+        app:srcCompat="@drawable/schedule" />
 
     <jp.shts.android.storiesprogressview.StoriesProgressView
         android:id="@+id/progressContainer"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:divider="@drawable/divider_space"
         android:orientation="horizontal"
         android:showDividers="middle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Native progress visual -->
     <LinearLayout
         android:id="@+id/nativeProgressContainer"
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:divider="@drawable/divider_space"
         android:orientation="horizontal"
         android:showDividers="middle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <!-- Bottom Layout -->
+    <LinearLayout
+        android:id="@+id/contentDesc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/str_title_welcome"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nativeProgressContainer" />
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/str_description_welcome"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieIntro"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescription"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/welcome"
-        app:lottie_speed="1.0" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnNext"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button_filled"
-        android:text="@string/str_next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:layout_height="280dp"
+        android:background="@drawable/bg_intro"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/str_title_welcome"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/str_description_welcome"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+            <!-- Next Button -->
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="320dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/primary"
+                android:text="@string/str_next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <View
         android:id="@+id/touchReverse"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contentDesc"
         app:layout_constraintEnd_toStartOf="@+id/touchSkip"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressContainer"
-        app:layout_constraintWidth_percent="0.5"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <View
         android:id="@+id/touchSkip"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contentDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/touchReverse"
         app:layout_constraintTop_toBottomOf="@+id/progressContainer"
-        app:layout_constraintWidth_percent="0.5"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintWidth_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-    implementation (libs.lottie)
     implementation (libs.androidx.core.splashscreen)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     implementation("com.github.shts:StoriesProgressView:3.0.0") {

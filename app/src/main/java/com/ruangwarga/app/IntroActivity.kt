@@ -4,9 +4,9 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -14,9 +14,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.airbnb.lottie.LottieAnimationView
 import com.ruangwarga.app.databinding.ActivityIntroBinding
 import jp.shts.android.storiesprogressview.StoriesProgressView
 
@@ -40,8 +37,6 @@ class IntroActivity : AppCompatActivity() {
         installSplashScreen()
         initBinding()
         enableEdgeToEdge()
-        initCompatWindow()
-        initSwitchLanguage()
         initNextStoryIntro()
     }
 
@@ -56,43 +51,25 @@ class IntroActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    private fun initSwitchLanguage() {
-        binding.btnLanguage.apply {
-            trackTintList = ContextCompat.getColorStateList(context, R.color.primary)
-        }
-        binding.btnLanguage.setOnCheckedChangeListener { _, isChecked ->
-            val selectedLanguage = if (isChecked) "ID" else "ENG"
-            Log.d("ID", "ID: $selectedLanguage")
-        }
-    }
-
-    private fun initCompatWindow() {
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-    }
-
     private fun initNextStoryIntro() {
         val storyItems = listOf(
             IntroItem(
-                R.raw.welcome,
+                R.drawable.welcome,
                 getString(R.string.str_title_welcome),
                 getString(R.string.str_description_welcome)
             ),
             IntroItem(
-                R.raw.schedule,
+                R.drawable.schedule,
                 getString(R.string.str_title_schedule),
                 getString(R.string.str_description_schedule)
             ),
             IntroItem(
-                R.raw.payment,
+                R.drawable.payment,
                 getString(R.string.str_title_payment),
                 getString(R.string.str_description_payment)
             ),
             IntroItem(
-                R.raw.charity,
+                R.drawable.charity,
                 getString(R.string.str_title_charity),
                 getString(R.string.str_description_charity)
             ),
@@ -112,13 +89,13 @@ class IntroActivity : AppCompatActivity() {
         }
         progressBars.forEach { binding.nativeProgressContainer.addView(it) }
 
-        val animationView: LottieAnimationView = binding.lottieIntro
+        val imageView: ImageView = binding.imageView
         val title: TextView = binding.tvTitle
         val description: TextView = binding.tvDescription
 
         fun updateStory(index: Int) {
             val item = storyItems[index]
-            animationView.setAnimation(item.imageRes)
+            imageView.setImageResource(item.imageRes)
             title.text = item.title
             description.text = item.description
 
@@ -170,7 +147,6 @@ class IntroActivity : AppCompatActivity() {
 
         binding.progressContainer.post {
             storiesView = binding.progressContainer
-            storiesView.setBackgroundColor(ContextCompat.getColor(this, R.color.primary))
             storiesView.setStoriesCountWithDurations(durations)
             storiesView.setStoriesListener(object : StoriesProgressView.StoriesListener {
                 override fun onNext() {
